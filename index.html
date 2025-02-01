@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Flow Diagram</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+    <!-- Call Type Selection -->
+    <div class="network">
+        <h2>Call Type</h2>
+        <form>
+            <label for="network">Choose a call type:</label>
+            <select id="network" name="network">
+                <option value="Registration">Registration</option>
+                <option value="Third-party Registration">Third-party Registration</option>
+                <option value="VoLTE to VoLTE call">VoLTE to VoLTE call</option>
+                <option value="VoLTE to CS(Pure) call">VoLTE to CS(Pure) call</option>
+                <option value="CS to VoLTE call">CS to VoLTE call</option>
+            </select>
+        </form>
+    </div>
+
+    <!-- Call Status -->
+    <div class="status" id="callStatus">Call Flow not started</div>
+
+    <!-- Start Call Button -->
+    <button onclick="startCall()">Start Call Flow</button>
+
+    <!-- Container for MSC Diagram -->
+    <div id="callFlowDiagram">
+        <!-- The diagram will be displayed here -->
+    </div>
+
+    <script>
+        function startCall() {
+            const callStatus = document.getElementById('callStatus');
+            const callFlowDiagram = document.getElementById('callFlowDiagram');
+            const selectedCallType = document.getElementById('network').value;
+
+            // Update call status
+            callStatus.textContent = `Call Flow started: ${selectedCallType}`;
+
+            // Clear previous diagram
+            callFlowDiagram.innerHTML = '';
+
+            // Display the correct image based on the selected call type
+            let imageUrl = '';
+            switch (selectedCallType) {
+                case 'Registration':
+                    imageUrl = 'https://github.com/cbsprabu/VoLTEcall/blob/main/IMS%20registration%20flow.png?raw=true';
+                    break;
+                case 'Third-party Registration':
+                    imageUrl = 'https://github.com/cbsprabu/VoLTEcall/blob/main/Third-Party%20Registration.png?raw=true';
+                    break;
+                case 'VoLTE to VoLTE call':
+                    imageUrl = 'URL_FOR_VOLTE_TO_VOLTE_IMAGE';
+                    break;
+                case 'VoLTE to CS(Pure) call':
+                    imageUrl = 'URL_FOR_VOLTE_TO_CS_IMAGE';
+                    break;
+                case 'CS to VoLTE call':
+                    imageUrl = 'URL_FOR_CS_TO_VOLTE_IMAGE';
+                    break;
+                default:
+                    imageUrl = '';
+            }
+
+            if (imageUrl) {
+                const imgElement = document.createElement('img');
+                imgElement.src = imageUrl;
+                imgElement.alt = `${selectedCallType} Diagram`;
+                callFlowDiagram.appendChild(imgElement);
+            } else {
+                callFlowDiagram.innerHTML = '<p>No diagram available for this call type.</p>';
+            }
+        }
+    </script>
+     <footer>
+        <p>&copy; 2023 CB Sethil Prabhu</p>
+    </footer>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
