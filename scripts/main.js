@@ -21,13 +21,13 @@ function startCall() {
             imageUrl = 'https://github.com/cbsprabu/VoLTEcall/blob/main/Third-Party%20Registration.png?raw=true';
             break;
         case 'VoLTE to VoLTE call':
-            imageUrl = 'URL_FOR_VOLTE_TO_VOLTE_IMAGE';
+            imageUrl = 'https://github.com/cbsprabu/VoLTEcall/blob/main/VoLTE%20to%20VoLTE%20Call%20flow.png?raw=true';
             break;
         case 'VoLTE to CS(Pure) call':
-            imageUrl = 'URL_FOR_VOLTE_TO_CS_IMAGE';
+            imageUrl = 'https://github.com/cbsprabu/VoLTEcall/blob/main/VoLTE%20to%20CS%20call%20flow.png?raw=true';
             break;
         case 'CS to VoLTE call':
-            imageUrl = 'URL_FOR_CS_TO_VOLTE_IMAGE';
+            imageUrl = 'https://github.com/cbsprabu/VoLTEcall/blob/main/CS%20to%20VoLTE%20call%20flow.png?raw=true';
             break;
         default:
             imageUrl = '';
